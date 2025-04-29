@@ -1,4 +1,5 @@
-let i = 0;
+import { createTodo } from "./todo";
+// let i = 0;
 function saveToStorage(item) {
   function storageAvailable(type) {
     let storage;
@@ -12,7 +13,6 @@ function saveToStorage(item) {
       return (
         e instanceof DOMException &&
         e.name === "QuotaExceededError" &&
-        // acknowledge QuotaExceededError only if there's something already stored
         storage &&
         storage.length !== 0
       );
@@ -21,9 +21,10 @@ function saveToStorage(item) {
   if (storageAvailable("localStorage")) {
     // storage.push(item);
 
-    localStorage.setItem(i, JSON.stringify(item));
-    i++;
+    localStorage.setItem(item.key, JSON.stringify(item));
+    // i++;
   } else {
+    return;
   }
 }
 function addToProject(project, todo) {
@@ -36,8 +37,28 @@ function removeFromStorage(item, storage) {
     else return;
   }
 }
-function getFromStorage(item) {
-  return localStorage.getItem(JSON.parse(item));
+function getFromStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
 }
-
-export { addToProject, saveToStorage, removeFromStorage, getFromStorage };
+let archive = [];
+function getAllFromStorage() {
+  for (var i = 1; i <= localStorage.length; i++) {
+    archive[i] = getFromStorage(i);
+  }
+  return { archive };
+}
+function reassignMethods(item) {
+  item.todoList.forEach((todo) => {
+    Object.assign(todo, createTodo());
+  });
+  return item;
+}
+export {
+  archive,
+  addToProject,
+  saveToStorage,
+  removeFromStorage,
+  getFromStorage,
+  reassignMethods,
+  getAllFromStorage,
+};
