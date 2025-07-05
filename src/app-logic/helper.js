@@ -1,5 +1,5 @@
 import { createTodo } from "./todo";
-// let i = 0;
+let storageKey = 0;
 function saveToStorage(item) {
   function storageAvailable(type) {
     let storage;
@@ -21,8 +21,8 @@ function saveToStorage(item) {
   if (storageAvailable("localStorage")) {
     // storage.push(item);
 
-    localStorage.setItem(item.key, JSON.stringify(item));
-    // i++;
+    localStorage.setItem(`${storageKey}`, JSON.stringify(item));
+    storageKey++;
   } else {
     return;
   }
@@ -31,21 +31,16 @@ function addToProject(project, todo) {
   return project.todoList.push(todo);
 }
 
-function removeFromStorage(item, storage) {
-  for (let i = 0; i < storage.length; i++) {
-    if (storage[i] === item) storage.splice(i, 1);
-    else return;
-  }
-}
+function removeFromStorage(item, storage) {}
 function getFromStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
-let archive = [];
+// let archive = [];
 function getAllFromStorage() {
-  for (var i = 1; i <= localStorage.length; i++) {
-    archive[i] = getFromStorage(i);
+  for (var i = 0; i < localStorage.length; i++) {
+    console.log(getFromStorage(i));
   }
-  return { archive };
+  // return { archive };
 }
 function reassignMethods(item) {
   item.todoList.forEach((todo) => {
@@ -54,7 +49,6 @@ function reassignMethods(item) {
   return item;
 }
 export {
-  archive,
   addToProject,
   saveToStorage,
   removeFromStorage,
