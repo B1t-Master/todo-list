@@ -1,5 +1,6 @@
 import { createTodo } from "./app-logic/todo";
 import * as helpers from "./app-logic/helper";
+import styles from "./style.css";
 
 let todo1 = createTodo("me", "blabalbala", "today", true, "important", 1);
 let todo2 = createTodo(

@@ -1,0 +1,148 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  --iconSize: 1.8rem;
+  --titleColor: #1e90ff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  /* padding: 1.5rem; */
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+}
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #fcfaf8;
+  padding: 1.5rem;
+  width: 25%;
+}
+.side-bar > h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--titleColor);
+}
+.project-listing div::after {
+  content: " ";
+  background: url(./assets/down-arrow.png);
+  display: inline-block;
+  background-size: 100%;
+  width: var(--iconSize);
+  height: var(--iconSize);
+  margin-top: 0.2rem;
+}
+
+.project-listing {
+  display: flex;
+  margin-left: 2rem;
+}
+.add-task {
+  display: flex;
+  /* gap: 0.4rem; */
+}
+.add-task div::before {
+  content: " ";
+  background: url(./assets/add-task-icon.png);
+  display: inline-block;
+  background-size: 100%;
+  width: var(--iconSize);
+  height: var(--iconSize);
+  margin-top: 0.2rem;
+}
+
+.display {
+  color: var(--titleColor);
+  padding: 10% 16rem 0 16rem;
+}
+
+.display > div {
+  font-size: 2rem;
+  border-bottom: 0.1rem solid rgb(210, 210, 210);
+  /* color: black; */
+  font-weight: bolder;
+  display: block;
+  display: flex;
+}
+
+.delete::after {
+  content: "";
+  background: url(assets/delete.png);
+  margin-left: 2rem;
+  display: inline-block;
+  background-size: 100%;
+  width: var(--iconSize);
+  height: var(--iconSize);
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
