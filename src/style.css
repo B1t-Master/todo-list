@@ -120,7 +120,7 @@ section {
 
 .display {
   color: var(--titleColor);
-  padding: 10% 16rem 0 16rem;
+  padding: 6% 16rem 0 16rem;
 }
 
 .display > div {
@@ -145,4 +145,61 @@ section {
 button {
   border: none;
   background-color: transparent;
+}
+
+.middle-container,
+.card-container {
+  display: flex;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.middle-container {
+  flex-direction: column;
+  margin-left: 3rem;
+  max-width: 1%;
+}
+
+input {
+  width: 1.15em;
+  height: 1.15em;
+  margin-top: 2rem;
+  accent-color: #aeea94;
+}
+
+.delete-button {
+  border-radius: 50%;
+  border: 1px;
+  background-color: #e14434;
+}
+
+.priority {
+  margin-right: auto;
+  align-self: center;
+  margin-left: 20%;
+}
+
+.high {
+  color: #e14434;
+}
+.low {
+  color: greenyellow;
+}
+.medium {
+  color: orange;
+}
+.delete-button {
+  box-sizing: border-box;
+  align-self: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  width: 4rem;
+  height: 2rem;
+  color: #fff;
+  background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
+    inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
 }

@@ -23,24 +23,38 @@ function saveToStorage(item) {
 
     localStorage.setItem(`${storageKey}`, JSON.stringify(item));
     storageKey++;
+    // console.log(localStorage.key(storageKey));
   } else {
     return;
   }
 }
-function addToProject(project, todo) {
-  return project.todoList.push(todo);
-}
+// function addToProject(project, todo) {
+//   return project.todoList.push(todo);
+// }
 
-function removeFromStorage(item, storage) {}
+function removeFromStorage(item, storage) {
+  const itemLength = item.length + 10;
+  for (let i = 0; i <= storage.length; i++) {
+    // console.log(storage.getItem(i).slice(10, itemLength));
+    if (storage.getItem(i).slice(10, itemLength) === item) {
+      storage.removeItem(i);
+    }
+    getAllFromStorage();
+    // return
+    // break;
+  }
+}
 function getFromStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
-// let archive = [];
+let archive = [];
 function getAllFromStorage() {
-  for (var i = 0; i < localStorage.length; i++) {
-    console.log(getFromStorage(i));
+  archive = [];
+  for (let i = 0; i <= localStorage.length; i++) {
+    if (getFromStorage(i)) archive[i] = getFromStorage(i);
   }
-  // return { archive };
+  archive = archive.filter((e) => e);
+  return archive;
 }
 function reassignMethods(item) {
   item.todoList.forEach((todo) => {
@@ -48,8 +62,22 @@ function reassignMethods(item) {
   });
   return item;
 }
+
+function getAllOfAKind(key) {
+  getAllFromStorage();
+  archive.forEach(function (object) {
+    return object[key];
+  });
+}
+
+let priority = ["low", "medium", "high"];
+
 export {
-  addToProject,
+  archive,
+  storageKey,
+  priority,
+  getAllOfAKind,
+  // addToProject,
   saveToStorage,
   removeFromStorage,
   getFromStorage,
