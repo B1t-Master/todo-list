@@ -1,3 +1,4 @@
+let archive = [];
 import { createTodo } from "./todo";
 let storageKey = 0;
 function convertToJSON(item) {
@@ -31,21 +32,20 @@ function convertToJSON(item) {
 }
 
 const saveToStorage = function (archive) {
-  for (index of archive) {
-    convertToJSON(storage[index]);
+  for (const index of archive) {
+    // console.log(archive[index]);
+    convertToJSON(index);
   }
 };
-// function addToProject(project, todo) {
-//   return project.todoList.push(todo);
-// }
 
 function removeFromStorage(item, storage) {
   // const itemLength = item.length + 10;
   for (let i = 0; i <= storage.length; i++) {
     for (const key in storage[i]) {
       if (storage[i][key] === item) {
-        storage.splice(i, i);
+        storage = storage.splice(i, 1);
         console.log(archive);
+        localStorage.clear();
         saveToStorage(archive);
         return;
       }
@@ -55,10 +55,11 @@ function removeFromStorage(item, storage) {
     // break;
   }
 }
+
 function getFromStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
-let archive = [];
+
 function getAllFromStorage() {
   // archive = [];
   for (let i = 0; i <= localStorage.length; i++) {
@@ -67,6 +68,7 @@ function getAllFromStorage() {
   archive = archive.filter((e) => e);
   return archive;
 }
+
 function reassignMethods(item) {
   item.todoList.forEach((todo) => {
     Object.assign(todo, createTodo());

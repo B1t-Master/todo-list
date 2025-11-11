@@ -16,15 +16,18 @@ helpers.archive.push(todo1);
 helpers.archive.push(todo2);
 helpers.archive.push(todo3);
 
-helpers.getAllFromStorage();
+helpers.saveToStorage(helpers.archive);
+
 // helpers.removeFromStorage("you", localStorage);
-console.log(helpers.archive);
-renderTaskCard(localStorage);
 // console.log(helpers.getFromStorage("0").title);
 // console.log("hello");
 // helpers.archive.forEach(function (e) {
 //   console.log(e.title);
 // });
 // helpers.getAllOfAKind("title");
-renderProjectCard(localStorage);
 // console.log(localStorage.key(1));
+
+console.log(helpers.archive);
+renderTaskCard(localStorage);
+renderProjectCard(localStorage);
+helpers.getAllFromStorage();

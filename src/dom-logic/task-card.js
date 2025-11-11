@@ -3,7 +3,7 @@ import {
   archive,
   removeFromStorage,
 } from "../app-logic/helper";
-const Project = document.querySelector("#display");
+const Project = document.querySelector(".project-body");
 export default function renderTaskCard(storage) {
   getAllFromStorage();
   let index = 0;
@@ -22,9 +22,11 @@ export default function renderTaskCard(storage) {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "delete";
 
-    deleteButton.addEventListener("click", () =>
-      removeFromStorage(`${taskName.textContent}`, archive)
-    );
+    deleteButton.addEventListener("click", () => {
+      removeFromStorage(`${taskName.textContent}`, archive);
+      Project.textContent = "";
+      renderTaskCard(archive);
+    });
 
     deleteButton.classList.add("delete-button");
     const status = document.createElement("input");

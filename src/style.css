@@ -121,9 +121,10 @@ section {
 .display {
   color: var(--titleColor);
   padding: 6% 16rem 0 16rem;
+  font-size: 2rem;
 }
 
-.display > div {
+.project-body > div {
   font-size: 2rem;
   border-bottom: 0.1rem solid rgb(210, 210, 210);
   /* color: black; */
