@@ -1,6 +1,6 @@
 import { createTodo } from "./todo";
 let storageKey = 0;
-function saveToStorage(item) {
+function convertToJSON(item) {
   function storageAvailable(type) {
     let storage;
     try {
@@ -18,6 +18,7 @@ function saveToStorage(item) {
       );
     }
   }
+
   if (storageAvailable("localStorage")) {
     // storage.push(item);
 
@@ -28,18 +29,28 @@ function saveToStorage(item) {
     return;
   }
 }
+
+const saveToStorage = function (archive) {
+  for (index of archive) {
+    convertToJSON(storage[index]);
+  }
+};
 // function addToProject(project, todo) {
 //   return project.todoList.push(todo);
 // }
 
 function removeFromStorage(item, storage) {
-  const itemLength = item.length + 10;
+  // const itemLength = item.length + 10;
   for (let i = 0; i <= storage.length; i++) {
-    // console.log(storage.getItem(i).slice(10, itemLength));
-    if (storage.getItem(i).slice(10, itemLength) === item) {
-      storage.removeItem(i);
+    for (const key in storage[i]) {
+      if (storage[i][key] === item) {
+        storage.splice(i, i);
+        console.log(archive);
+        saveToStorage(archive);
+        return;
+      }
     }
-    getAllFromStorage();
+    // console.log(storage.getItem(i).slice(10, itemLength));
     // return
     // break;
   }
@@ -49,7 +60,7 @@ function getFromStorage(key) {
 }
 let archive = [];
 function getAllFromStorage() {
-  archive = [];
+  // archive = [];
   for (let i = 0; i <= localStorage.length; i++) {
     if (getFromStorage(i)) archive[i] = getFromStorage(i);
   }

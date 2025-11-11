@@ -12,14 +12,12 @@ let todo5 = createTodo("whooo", "waayyy", "future", false, "low", 2);
 // helpers.getAllFromStorage();
 
 // console.log(todo1);
-helpers.saveToStorage(todo1);
-helpers.saveToStorage(todo2);
-helpers.saveToStorage(todo3);
-helpers.saveToStorage(todo4);
-helpers.saveToStorage(todo5);
+helpers.archive.push(todo1);
+helpers.archive.push(todo2);
+helpers.archive.push(todo3);
 
 helpers.getAllFromStorage();
-helpers.removeFromStorage("you", localStorage);
+// helpers.removeFromStorage("you", localStorage);
 console.log(helpers.archive);
 renderTaskCard(localStorage);
 // console.log(helpers.getFromStorage("0").title);

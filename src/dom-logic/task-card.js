@@ -22,9 +22,10 @@ export default function renderTaskCard(storage) {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "delete";
 
-    // deleteButton.addEventListener("click", () =>
-    //   removeFromStorage(`${taskName.textContent}`, localStorage)
-    // );
+    deleteButton.addEventListener("click", () =>
+      removeFromStorage(`${taskName.textContent}`, archive)
+    );
+
     deleteButton.classList.add("delete-button");
     const status = document.createElement("input");
     status.type = "checkbox";
