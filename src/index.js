@@ -12,11 +12,11 @@ let todo5 = createTodo("whooo", "waayyy", "future", false, "low", 2);
 // helpers.getAllFromStorage();
 
 // console.log(todo1);
-helpers.archive.push(todo1);
-helpers.archive.push(todo2);
-helpers.archive.push(todo3);
+// helpers.archive.push(todo1);
+// helpers.archive.push(todo2);
+// helpers.archive.push(todo3);
 
-helpers.saveToStorage(helpers.archive);
+// helpers.saveToStorage(helpers.archive);
 
 // helpers.removeFromStorage("you", localStorage);
 // console.log(helpers.getFromStorage("0").title);

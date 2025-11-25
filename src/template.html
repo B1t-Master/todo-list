@@ -29,4 +29,43 @@
       <div class="project-body"></div>
     </section>
   </body>
+  <dialog id="task-modal">
+      <form action="" method="post">
+        <div>
+          <label class="name" for="name">Task Name:</label>
+          <input
+            required
+            class="modal"
+            type="text"
+            id="name"
+            placeholder="Do leetcode"
+            name="task-name"
+          />
+        </div>
+        <div>
+          <label for="dueDate">Due date:</label>
+          <input
+            required
+            type="date"
+            id="dueDate"
+            min="0"
+            class="date modal"
+            name="date"
+          />
+        </div>
+        <div>
+          <label class="number" for="number">Project:</label>
+          <input
+            required
+            type="number"
+            id="name"
+            name="project-number"
+          />
+        </div>
+        <div>
+          <button class="dialog-add" type="dialog">Create</button>
+        </div>
+      </form>
+      <button class="close" type="button">Close</button>
+    </dialog>
 </html>

@@ -204,3 +204,95 @@ input {
   box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25),
     inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
 }
+
+dialog[open] {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  appearance: none;
+  justify-content: center;
+  border-radius: 16px;
+  border: none;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  gap: 16px;
+  padding: 2rem;
+}
+
+dialog::backdrop {
+  background-color: grey;
+  opacity: 0.5;
+}
+
+form {
+  display: flex;
+  margin-top: 8rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+form > div {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+}
+
+form > div > input {
+  margin-top: -0.05rem;
+}
+
+dialog > form > label,
+dialog > form > div {
+  font-size: 2rem;
+}
+
+.modal {
+  height: 2rem;
+}
+
+.modal:focus {
+  appearance: none;
+  outline: none;
+  border: 1px solid #c7383c;
+  border-radius: 8px;
+}
+
+.close {
+  margin-top: 0.5em;
+}
+
+form > input {
+  font-size: 1.5rem;
+}
+
+input {
+  align-self: center;
+}
+
+fieldset {
+  /* appearance: none; */
+  border: 0px;
+}
+
+.name {
+  flex: 2;
+}
+
+#name {
+  width: 18rem;
+}
+
+input {
+}
