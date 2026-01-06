@@ -3,6 +3,7 @@ import * as helpers from "./app-logic/helper";
 import styles from "./style.css";
 import renderTaskCard from "./dom-logic/task-card";
 import { renderProjectCard } from "./dom-logic/project-card";
+import { addButton } from "./dom-logic/add-task";
 
 let todo1 = createTodo("me", "blabalbala", "today", true, "low", 1);
 let todo2 = createTodo("you", "yadayadayaay", "tomorrow", true, "medium", 1);
@@ -28,6 +29,9 @@ let todo5 = createTodo("whooo", "waayyy", "future", false, "low", 2);
 // console.log(localStorage.key(1));
 
 console.log(helpers.archive);
-renderTaskCard(localStorage);
-renderProjectCard(localStorage);
-helpers.getAllFromStorage();
+
+helpers.updateView();
+// helpers.getAllFromStorage();
+
+// let cardConatiner = document.querySelector(".card-container");
+// console.log(cardConatiner.innerHTML);

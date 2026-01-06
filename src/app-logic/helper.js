@@ -1,5 +1,8 @@
-let archive = [];
+import renderTaskCard from "../dom-logic/task-card";
 import { createTodo } from "./todo";
+import { formatDistanceToNow } from "date-fns";
+import { renderProjectCard } from "../dom-logic/project-card";
+let archive = [];
 let storageKey = 0;
 function convertToJSON(item) {
   function storageAvailable(type) {
@@ -82,7 +85,19 @@ function getAllOfAKind(key) {
     return object[key];
   });
 }
+function formatDate(date) {
+  // let date1 = new Date();
+  // if (date1 > date2) {
+  //   return "expired";
+  // }
+  return `${formatDistanceToNow(date)} to go `;
+}
 
+function updateView() {
+  renderTaskCard(localStorage);
+  renderProjectCard(localStorage);
+  return;
+}
 let priority = ["low", "medium", "high"];
 
 export {
@@ -90,10 +105,11 @@ export {
   storageKey,
   priority,
   getAllOfAKind,
-  // addToProject,
+  formatDate,
   saveToStorage,
   removeFromStorage,
   getFromStorage,
   reassignMethods,
   getAllFromStorage,
+  updateView,
 };

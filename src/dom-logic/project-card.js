@@ -1,8 +1,10 @@
 import { getAllFromStorage, archive } from "../app-logic/helper";
-import { addButton } from "./add-task";
 
 const projectTab = document.querySelector("#project-listing");
+let projects = document.createElement("div");
+projects.classList.add("projects");
 function renderProjectCard(storage) {
+  projects.textContent = "";
   function distinctBy(key, array) {
     let keys = array.map(function (value) {
       return value[key];
@@ -21,7 +23,8 @@ function renderProjectCard(storage) {
     projectTitle.textContent = `${projectNames[index].projectName}`;
     let button = document.createElement("button");
     button.appendChild(projectTitle);
-    projectTab.appendChild(button);
+    projects.appendChild(button);
+    projectTab.appendChild(projects);
     button.id = `${projectNames[index].projectName}`;
     // button.addEventListener("click");
     index++;

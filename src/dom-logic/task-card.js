@@ -3,11 +3,14 @@ import {
   archive,
   removeFromStorage,
 } from "../app-logic/helper";
+
+import * as helpers from "../app-logic/helper";
+
 const Project = document.querySelector(".project-body");
 export default function renderTaskCard(storage) {
   getAllFromStorage();
   let index = 0;
-  while (index < archive.length) {
+  while (index < storage.length) {
     // if ()
     let cardConatiner = document.createElement("div");
     let midlleContainer = document.createElement("div");
@@ -25,7 +28,7 @@ export default function renderTaskCard(storage) {
     deleteButton.addEventListener("click", () => {
       removeFromStorage(`${taskName.textContent}`, archive);
       Project.textContent = "";
-      renderTaskCard(archive);
+      helpers.updateView();
     });
 
     deleteButton.classList.add("delete-button");

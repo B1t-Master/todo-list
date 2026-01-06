@@ -133,6 +133,13 @@ section {
   display: flex;
 }
 
+.projects {
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  font-weight: 600;
+}
+
 .delete::after {
   content: "";
   background: url(assets/delete.png);
@@ -152,13 +159,22 @@ button {
 .card-container {
   display: flex;
   width: 100%;
+  flex-direction: row;
+  flex-grow: 2;
   /* height: 100%; */
 }
-
+.card-container :nth-child(3) {
+  margin-right: auto;
+  text-align: start;
+  margin-left: 3rem;
+}
 .middle-container {
   flex-direction: column;
-  margin-left: 3rem;
-  max-width: 1%;
+  margin-left: 2rem;
+  max-width: fit-content;
+  flex-grow: auto;
+  align-items: center;
+  justify-items: center;
 }
 
 input {
@@ -292,7 +308,4 @@ fieldset {
 
 #name {
   width: 18rem;
-}
-
-input {
 }
