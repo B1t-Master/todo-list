@@ -15,7 +15,7 @@
         <h1>Add Task</h1>
       </div>
       <div class="project-listing" id="project-listing">
-        <h1 >Your Projects</h1>
+        <h1>Your Projects</h1>
         <button class="list-project">
           <div></div>
         </button>
@@ -23,60 +23,58 @@
     </section>
     <section class="display" id="display">
       <div>
-        <h1 class="project-name">Project Name<h1>
-          <div class="delete" id="delete-button"></div>
+        <h1 class="project-name">All Todos</h1>
+        <div class="delete" id="delete-button"></div>
       </div>
       <div class="project-body"></div>
     </section>
   </body>
   <dialog id="task-modal">
-      <form action="" method="post">
-        <div>
-          <label class="name" for="name">Task Name:</label>
-          <input
-            required
-            class="task-title"
-            type="text"
-            id="name"
-            placeholder="Do leetcode"
-            name="task-name"
-          />
-        </div>
-        <div>
-          <label for="dueDate">Due date:</label>
-          <input
-            required
-            type="date"
-            id="dueDate"
-            min="0"
-            class="date"
-            name="date"
-          />
-        </div>
-         <div>
-          <label for="priority">Priority:</label>
-          <select id="priority" class="priority">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-          
-        </div>
-        <div>
-          <label class="number" for="number">Project:</label>
-          <input
-            required
-            type="text"
-            id="number"
-            name="project-number"
-            class="project-number"
-
-          />
-        </div>
-        <div>
-          <button class="dialog-add" type="button" >Create</button>
-        </div>
-      </form>
-      <button class="close" type="button">Close</button>
-    </dialog>
+    <form action="" method="post">
+      <div>
+        <label class="name" for="name">Task Name:</label>
+        <input
+          required
+          class="task-title"
+          type="text"
+          id="name"
+          placeholder="Do leetcode"
+          name="task-name"
+        />
+      </div>
+      <div>
+        <label for="dueDate">Due date:</label>
+        <input
+          required
+          type="date"
+          id="dueDate"
+          min="0"
+          class="date"
+          name="date"
+        />
+      </div>
+      <div>
+        <label for="priority">Priority:</label>
+        <select id="priority" class="priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+      <div>
+        <label class="number" for="number">Project:</label>
+        <input
+          required
+          type="text"
+          id="number"
+          name="project-number"
+          class="project-number"
+        />
+      </div>
+      <div>
+        <button class="dialog-add" type="button">Create</button>
+      </div>
+    </form>
+    <button class="close" type="button">Close</button>
+  </dialog>
 </html>

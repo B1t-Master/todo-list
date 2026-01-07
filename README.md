@@ -14,6 +14,7 @@ A responsive Todo List web application built with JavaScript, HTML, and CSS as p
 - [x] **Priority levels**: Set priority levels (low, medium, high) for tasks
 - [x] **Due dates**: Assign and view due dates for tasks
 - [ ] **Expand a single task**
+- [x] **View all todos in their respective project**
 
 ## Technologies Used
 

@@ -46,10 +46,11 @@ createTaskButton.addEventListener("click", () => {
   let projectBody = document.querySelector(".project-body");
   projectBody.textContent = "";
   helpers.archive.push(todo);
-  helpers.saveToStorage(helpers.archive.splice(-1));
+  helpers.saveToStorage(helpers.archive);
 
-  renderTaskCard(localStorage);
-  renderProjectCard(localStorage);
+  let storage = helpers.getAllFromStorage();
+
+  helpers.updateView(storage);
   modal.close();
 
   // console.log(projectNumber);

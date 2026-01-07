@@ -1,4 +1,5 @@
 import { getAllFromStorage, archive } from "../app-logic/helper";
+import selectProjects from "./select-project";
 
 const projectTab = document.querySelector("#project-listing");
 let projects = document.createElement("div");
@@ -22,6 +23,7 @@ function renderProjectCard(storage) {
     let projectTitle = document.createElement("div");
     projectTitle.textContent = `${projectNames[index].projectName}`;
     let button = document.createElement("button");
+    button.classList.add("project-buttons");
     button.appendChild(projectTitle);
     projects.appendChild(button);
     projectTab.appendChild(projects);
@@ -29,6 +31,12 @@ function renderProjectCard(storage) {
     // button.addEventListener("click");
     index++;
   }
+  let projectButtons = document.querySelectorAll(".project-buttons");
+  projectButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      selectProjects(button.textContent);
+    });
+  });
 }
 
 // function

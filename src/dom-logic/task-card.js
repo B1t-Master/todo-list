@@ -7,8 +7,10 @@ import {
 import * as helpers from "../app-logic/helper";
 
 const Project = document.querySelector(".project-body");
+
+// let tempArray = helpers.getProjectToDos(archive, projectName);
 export default function renderTaskCard(storage) {
-  getAllFromStorage();
+  // storage = getAllFromStorage();
   let index = 0;
   while (index < storage.length) {
     // if ()
@@ -18,24 +20,19 @@ export default function renderTaskCard(storage) {
     let dueDate = document.createElement("div");
     let priority = document.createElement("div");
     midlleContainer.classList.add("middle-container");
-    taskName.textContent = `${archive[index].title}`;
-    dueDate.textContent = `${archive[index].deadline}`;
+    taskName.textContent = `${storage[index].title}`;
+    dueDate.textContent = `${storage[index].deadline}`;
     midlleContainer.appendChild(taskName);
     midlleContainer.appendChild(dueDate);
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "delete";
-
-    deleteButton.addEventListener("click", () => {
-      removeFromStorage(`${taskName.textContent}`, archive);
-      Project.textContent = "";
-      helpers.updateView();
-    });
+    deleteButton.value = taskName.textContent;
 
     deleteButton.classList.add("delete-button");
     const status = document.createElement("input");
     status.type = "checkbox";
-    status.checked = archive[index].status;
-    priority.textContent = `${archive[index].priority}`;
+    status.checked = storage[index].status;
+    priority.textContent = `${storage[index].priority}`;
     priority.classList.add(`${priority.textContent}`);
     priority.classList.add(`priority`);
 
@@ -51,11 +48,31 @@ export default function renderTaskCard(storage) {
     addClasses(midlleContainer, cardConatiner);
     ++index;
   }
-  return;
+
+  let deleteButtons = document.querySelectorAll(".delete-button");
+  deleteButtons.forEach((deleteButton) => {
+    deleteButton.addEventListener("click", () => {
+      let projectName = document.querySelector(".project-name");
+      removeFromStorage(`${deleteButton.value}`, archive);
+
+      Project.textContent = "";
+
+      if (projectName.textContent === "All Todos") {
+        storage = helpers.getAllFromStorage();
+        helpers.updateView(storage);
+      } else {
+        let projectName = document.querySelector(".project-name");
+        let tempArray = helpers.getProjectToDos(helpers.archive, projectName);
+
+        console.log(tempArray);
+        helpers.updateView(tempArray);
+      }
+    });
+  });
 }
 
 function addClasses(midlleContainer, cardConatiner) {
-  console.log(midlleContainer);
+  // console.log(midlleContainer);
   // let arr = [midlleContainer, cardConatiner];
   // console.log(arr);
   midlleContainer.classList.add("middle-container");

@@ -3,8 +3,9 @@ import { createTodo } from "./todo";
 import { formatDistanceToNow } from "date-fns";
 import { renderProjectCard } from "../dom-logic/project-card";
 let archive = [];
-let storageKey = 0;
-function convertToJSON(item) {
+
+// let storageKey = 0;
+function convertToJSON(item, storageKey) {
   function storageAvailable(type) {
     let storage;
     try {
@@ -27,7 +28,6 @@ function convertToJSON(item) {
     // storage.push(item);
 
     localStorage.setItem(`${storageKey}`, JSON.stringify(item));
-    storageKey++;
     // console.log(localStorage.key(storageKey));
   } else {
     return;
@@ -35,24 +35,26 @@ function convertToJSON(item) {
 }
 
 const saveToStorage = function (archive) {
+  let storageKey = 0;
+  // localStorage.clear;
   for (const index of archive) {
     // console.log(archive[index]);
-    convertToJSON(index);
+    convertToJSON(index, storageKey);
+    storageKey++;
   }
 };
 
 function removeFromStorage(item, storage) {
   // const itemLength = item.length + 10;
   for (let i = 0; i <= storage.length; i++) {
-    for (const key in storage[i]) {
-      if (storage[i][key] === item) {
-        storage = storage.splice(i, 1);
-        console.log(archive);
-        localStorage.clear();
-        saveToStorage(archive);
-        return;
-      }
+    if (storage[i].title === item) {
+      console.log(archive);
+      storage.splice(i, 1);
+      localStorage.clear();
+      saveToStorage(storage);
+      return;
     }
+
     // console.log(storage.getItem(i).slice(10, itemLength));
     // return
     // break;
@@ -64,7 +66,7 @@ function getFromStorage(key) {
 }
 
 function getAllFromStorage() {
-  // archive = [];
+  // let archive = [];
   for (let i = 0; i <= localStorage.length; i++) {
     if (getFromStorage(i)) archive[i] = getFromStorage(i);
   }
@@ -93,16 +95,24 @@ function formatDate(date) {
   return `${formatDistanceToNow(date)} to go `;
 }
 
-function updateView() {
-  renderTaskCard(localStorage);
+function updateView(storage) {
   renderProjectCard(localStorage);
-  return;
+  renderTaskCard(storage);
 }
+
+function getProjectToDos(storage, project) {
+  console.log(project);
+  return storage.filter((todo) => {
+    return todo.projectName === project;
+  });
+}
+//helper function to clear an element
+
+// saveToStorage(archive);
 let priority = ["low", "medium", "high"];
 
 export {
   archive,
-  storageKey,
   priority,
   getAllOfAKind,
   formatDate,
@@ -112,4 +122,5 @@ export {
   reassignMethods,
   getAllFromStorage,
   updateView,
+  getProjectToDos,
 };
