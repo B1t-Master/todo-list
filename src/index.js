@@ -68,4 +68,4 @@ localStorage.setItem(
   })
 );
 
-updateView(archive);
+helpers.updateView(helpers.getAllFromStorage());
