@@ -32,49 +32,64 @@
   <dialog id="task-modal">
     <form action="" method="post">
       <div>
-        <label class="name" for="name">Task Name:</label>
         <input
           required
           class="task-title"
           type="text"
           id="name"
-          placeholder="Do leetcode"
+          placeholder="Todo Title"
           name="task-name"
         />
       </div>
       <div>
-        <label for="dueDate">Due date:</label>
-        <input
-          required
-          type="date"
-          id="dueDate"
-          min="0"
-          class="date"
-          name="date"
-        />
-      </div>
-      <div>
-        <label for="priority">Priority:</label>
-        <select id="priority" class="priority">
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-      </div>
-      <div>
-        <label class="number" for="number">Project:</label>
         <input
           required
           type="text"
           id="number"
           name="project-number"
+          placeholder="Project Name"
           class="project-number"
         />
       </div>
       <div>
-        <button class="dialog-add" type="button">Create</button>
+        <textarea
+          type="text"
+          id="description"
+          name="description"
+          placeholder="Todo Description(Optional)"
+          class="description"
+        >
+        </textarea>
+      </div>
+      <div class="minor-fields">
+        <div class="due-date">
+          <label for="dueDate">Due date:</label>
+          <input
+            required
+            type="date"
+            id="dueDate"
+            min="0"
+            placeholder="01/01/2030"
+            class="date"
+            name="date"
+          />
+        </div>
+        <div class="priority-container">
+          <label for="priority">Priority:</label>
+          <select id="priority" class="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <div>
+          <button class="dialog-add" type="button">Create</button>
+        </div>
+        <button class="close" type="button">Close</button>
       </div>
     </form>
-    <button class="close" type="button">Close</button>
   </dialog>
 </html>

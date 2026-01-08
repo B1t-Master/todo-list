@@ -228,8 +228,8 @@ dialog[open] {
   bottom: 0;
   margin: auto;
   position: absolute;
-  width: 50%;
-  height: 50%;
+  width: 32rem;
+  height: 76%;
   background: #eee;
   display: flex;
   flex-direction: column;
@@ -241,6 +241,7 @@ dialog[open] {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   gap: 16px;
   padding: 2rem;
+  overflow: hidden;
 }
 
 dialog::backdrop {
@@ -250,12 +251,15 @@ dialog::backdrop {
 
 form {
   display: flex;
-  margin-top: 8rem;
   gap: 2rem;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-self: center;
+  margin-top: 0.4rem;
+  /* opacity: 0.5; */
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 form > div {
@@ -266,17 +270,54 @@ form > div {
 }
 
 form > div > input {
+  border: solid 1px;
+  border-color: black;
+  border-radius: 0.1rem;
   margin-top: -0.05rem;
+  width: 100%;
+}
+textarea {
+  width: 24rem;
+  font-size: 1.5rem;
+  resize: none;
+  height: 7rem;
 }
 
+.minor-fields {
+  display: flex;
+  gap: 1rem;
+}
+
+.minor-fields > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 2rem;
+  opacity: 0.5;
+  /* margin-right: 0.5rem; */
+}
+
+.minor-fields > div > input,
+.minor-fields > div > select {
+  margin: 0px;
+  width: 12rem;
+  font-size: 1.5rem;
+
+  /* font-weight: 200; */
+}
+.priority-container {
+}
+.due-date {
+  /* margin-top: 0px; */
+}
 dialog > form > label,
 dialog > form > div {
   font-size: 2rem;
 }
 
-.modal {
+/* .modal {
   height: 2rem;
-}
+} */
 
 .modal:focus {
   appearance: none;
@@ -305,7 +346,37 @@ fieldset {
 .name {
   flex: 2;
 }
+.modal-buttons {
+  display: flex;
+  gap: 1.5rem;
+  /* width: 20rem?\; */
+}
+.modal-buttons > * {
+  margin-top: 0px;
+}
 
-#name {
-  width: 18rem;
+.modal-buttons > button,
+.dialog-add {
+  /* margin: 0 50% 0 50%; */
+  width: 11.5rem;
+  border: none;
+  /* display: flex; */
+  padding: 0.75rem 1.5rem;
+  background-color: #c7383c;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 0.5rem;
+  user-select: none;
+  gap: 0.75rem;
+  box-shadow: 0 4px 6px -1px #488aec31, 0 2px 4px -1px #488aec17;
+  transition: all 0.6s ease;
+}
+.dialog-add {
+  background-color: #488aec;
 }
