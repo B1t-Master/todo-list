@@ -36,36 +36,41 @@ let todo5 = createTodo("whooo", "waayyy", "future", false, "low", 2);
 // helpers.getAllOfAKind("title");
 // console.log(localStorage.key(1));
 
-console.log(helpers.archive);
-
 // helpers.updateView(helpers.archive);
 // helpers.getAllFromStorage();
 
-// let cardConatiner = document.querySelector(".card-container");
+let cardConatiner = document.querySelector(".project-body");
 // console.log(cardConatiner.innerHTML);
 
-localStorage.setItem(
-  `${0}`,
-  JSON.stringify({
-    title: "Morning Jog",
-    description: "Complete a 30 minute morning Jog at 6am",
-    deadline: "today",
-    status: true,
-    priority: "low",
-    projectName: "Example",
-  })
-);
+cardConatiner.addEventListener(
+  "load",
+  (e) => {
+    localStorage.setItem(
+      `${0}`,
+      JSON.stringify({
+        title: "Morning Jog",
+        description: "Complete a 30 minute morning Jog at 6am",
+        deadline: "today",
+        status: true,
+        priority: "low",
+        projectName: "Example",
+      })
+    );
 
-localStorage.setItem(
-  `${1}`,
-  JSON.stringify({
-    title: "LeetCode Practice",
-    description: "Complete 2 LeetCode easies",
-    deadline: "tomorrow",
-    status: true,
-    priority: "medium",
-    projectName: "Example",
-  })
+    localStorage.setItem(
+      `${1}`,
+      JSON.stringify({
+        title: "LeetCode Practice",
+        description: "Complete 2 LeetCode easies",
+        deadline: "tomorrow",
+        status: true,
+        priority: "medium",
+        projectName: "Example",
+      })
+    );
+    // e.preventDefault();
+    console.log(helpers.archive);
+  },
+  { once: true }
 );
-
 helpers.updateView(helpers.getAllFromStorage());
