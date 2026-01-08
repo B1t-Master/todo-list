@@ -13,10 +13,11 @@ export default function () {
         JSON.stringify({
           title: "Morning Jog",
           description: "Complete a 30 minute morning Jog at 6am",
-          deadline: "today",
+          deadline: "2026-03-31",
           status: true,
           priority: "low",
           projectName: "Example",
+          id: 0,
         })
       );
 
@@ -25,10 +26,11 @@ export default function () {
         JSON.stringify({
           title: "LeetCode Practice",
           description: "Complete 2 LeetCode easies",
-          deadline: "tomorrow",
+          deadline: "2027-01-01",
           status: true,
           priority: "medium",
           projectName: "Example",
+          id: 1,
         })
       );
       helpers.updateView(helpers.getAllFromStorage());

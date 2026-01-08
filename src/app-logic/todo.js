@@ -8,8 +8,8 @@ function createTodo(
   deadline,
   status,
   priority,
-  projectName
-  // id = storageKey
+  projectName,
+  id
 ) {
   // let status = false;
   const deleteTodo = () => {};
@@ -26,7 +26,7 @@ function createTodo(
     deleteTodo,
     priority,
     projectName,
-    // id,
+    id,
   };
 }
 

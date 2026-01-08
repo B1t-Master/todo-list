@@ -6,14 +6,14 @@ A responsive Todo List web application built with JavaScript, HTML, and CSS as p
 
 - [x] **Project-based organization**: Create multiple todo lists for different projects
 - [ ] **Task management**:
-  - [x] Add new tasks
-  - [ ] Mark tasks as complete
-  - [x] Delete tasks
-  - [ ] Edit existing tasks
+  - [x] Add new todos
+  - [ ] Mark todos as complete
+  - [x] Delete todo
+  - [ ] Edit existing todos
 - [x] **Local storage**: Todos persist between browser sessions
 - [x] **Priority levels**: Set priority levels (low, medium, high) for tasks
-- [x] **Due dates**: Assign and view due dates for tasks
-- [ ] **Expand a single task**
+- [x] **Due dates**: Assign and view due dates for todos
+- [x] **Expand a single todo**
 - [x] **View all todos in their respective project**
 
 ## Technologies Used

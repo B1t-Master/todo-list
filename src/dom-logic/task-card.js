@@ -3,7 +3,7 @@ import {
   archive,
   removeFromStorage,
 } from "../app-logic/helper";
-
+import expandTodo from "./expand-todo";
 import * as helpers from "../app-logic/helper";
 
 const Project = document.querySelector(".project-body");
@@ -21,7 +21,9 @@ export default function renderTaskCard(storage) {
     let priority = document.createElement("div");
     midlleContainer.classList.add("middle-container");
     taskName.textContent = `${storage[index].title}`;
-    dueDate.textContent = `${storage[index].deadline}`;
+    dueDate.textContent = `${helpers.formatDate(storage[index].deadline)}`;
+    cardConatiner.id = `${storage[index].id}`;
+
     midlleContainer.appendChild(taskName);
     midlleContainer.appendChild(dueDate);
     const deleteButton = document.createElement("button");
@@ -38,6 +40,7 @@ export default function renderTaskCard(storage) {
 
     // status.name = "status";
     // status.textContent = `${archive[index].status}`;
+    cardConatiner.classList.add(`${cardConatiner.id}`);
 
     cardConatiner.appendChild(status);
     cardConatiner.appendChild(midlleContainer);
@@ -68,6 +71,7 @@ export default function renderTaskCard(storage) {
       }
     });
   });
+  expandTodo();
 }
 
 function addClasses(midlleContainer, cardConatiner) {
@@ -76,6 +80,7 @@ function addClasses(midlleContainer, cardConatiner) {
   // console.log(arr);
   midlleContainer.classList.add("middle-container");
   cardConatiner.classList.add("card-container");
+
   // arr.map((elem) => {
   //   elem.classList.add(`${elem}` + "-container");
   // });

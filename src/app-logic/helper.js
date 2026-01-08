@@ -40,6 +40,8 @@ const saveToStorage = function (archive) {
   for (const index of archive) {
     // console.log(archive[index]);
     convertToJSON(index, storageKey);
+    // index.id = storageKey;
+    // console.log(index.id);
     storageKey++;
   }
 };
@@ -108,6 +110,11 @@ function getProjectToDos(storage, project) {
     return todo.projectName === project;
   });
 }
+
+let id = 3;
+function generateID() {
+  return id++;
+}
 //helper function to clear an element
 
 // saveToStorage(archive);
@@ -125,4 +132,5 @@ export {
   getAllFromStorage,
   updateView,
   getProjectToDos,
+  generateID,
 };

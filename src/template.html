@@ -12,7 +12,7 @@
         <button class="add-task">
           <div></div>
         </button>
-        <h1>Add Task</h1>
+        <h1>Add ToDo</h1>
       </div>
       <div class="project-listing" id="project-listing">
         <h1>Your Projects</h1>
@@ -30,7 +30,7 @@
     </section>
   </body>
   <dialog id="task-modal">
-    <form action="" method="post">
+    <form id="form" action="" method="POST">
       <div>
         <input
           required
@@ -53,13 +53,11 @@
       </div>
       <div>
         <textarea
-          type="text"
           id="description"
           name="description"
           placeholder="Todo Description(Optional)"
           class="description"
-        >
-        </textarea>
+        ></textarea>
       </div>
       <div class="minor-fields">
         <div class="due-date">
@@ -67,11 +65,10 @@
           <input
             required
             type="date"
+            value="2030-01-01"
             id="dueDate"
-            min="0"
             placeholder="01/01/2030"
             class="date"
-            name="date"
           />
         </div>
         <div class="priority-container">
@@ -86,7 +83,7 @@
 
       <div class="modal-buttons">
         <div>
-          <button class="dialog-add" type="button">Create</button>
+          <button class="dialog-add blue" type="button">Create</button>
         </div>
         <button class="close" type="button">Close</button>
       </div>
