@@ -4,6 +4,7 @@ import styles from "./style.css";
 import renderTaskCard from "./dom-logic/task-card";
 import { renderProjectCard } from "./dom-logic/project-card";
 import { addButton } from "./dom-logic/add-task";
+import firstLoad from "./dom-logic/first-load";
 
 let todo1 = createTodo("me", "blabalbala", "today", true, "low", "Example");
 let todo2 = createTodo(
@@ -39,38 +40,12 @@ let todo5 = createTodo("whooo", "waayyy", "future", false, "low", 2);
 // helpers.updateView(helpers.archive);
 // helpers.getAllFromStorage();
 
-let cardConatiner = document.querySelector(".project-body");
 // console.log(cardConatiner.innerHTML);
 
-cardConatiner.addEventListener(
-  "load",
-  (e) => {
-    localStorage.setItem(
-      `${0}`,
-      JSON.stringify({
-        title: "Morning Jog",
-        description: "Complete a 30 minute morning Jog at 6am",
-        deadline: "today",
-        status: true,
-        priority: "low",
-        projectName: "Example",
-      })
-    );
+// helpers.archive= helpers.getAllFromStorage()
+// helpers.updateView(helpers.getAllFromStorage());
+console.log(helpers.archive);
 
-    localStorage.setItem(
-      `${1}`,
-      JSON.stringify({
-        title: "LeetCode Practice",
-        description: "Complete 2 LeetCode easies",
-        deadline: "tomorrow",
-        status: true,
-        priority: "medium",
-        projectName: "Example",
-      })
-    );
-    // e.preventDefault();
-    console.log(helpers.archive);
-  },
-  { once: true }
-);
-helpers.updateView(helpers.getAllFromStorage());
+firstLoad();
+
+// firstLoad();

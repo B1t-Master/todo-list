@@ -63,7 +63,6 @@ export default function renderTaskCard(storage) {
       } else {
         let projectName = document.querySelector(".project-name");
         let tempArray = helpers.getProjectToDos(helpers.archive, projectName);
-
         console.log(tempArray);
         helpers.updateView(tempArray);
       }

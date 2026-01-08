@@ -96,6 +96,8 @@ function formatDate(date) {
 }
 
 function updateView(storage) {
+  localStorage.setItem("visited", true);
+
   renderProjectCard(localStorage);
   renderTaskCard(storage);
 }
