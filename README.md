@@ -9,7 +9,7 @@ A responsive Todo List web application built with JavaScript, HTML, and CSS as p
   - [x] Add new todos
   - [ ] Mark todos as complete
   - [x] Delete todo
-  - [ ] Edit existing todos
+  - [x] Edit existing todos
 - [x] **Local storage**: Todos persist between browser sessions
 - [x] **Priority levels**: Set priority levels (low, medium, high) for tasks
 - [x] **Due dates**: Assign and view due dates for todos

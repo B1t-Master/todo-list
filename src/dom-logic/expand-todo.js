@@ -1,5 +1,6 @@
 import * as helpers from "../app-logic/helper";
 import { addTodo } from "./add-task";
+import { reviveEditTodo } from "./edit-todo";
 
 export default function expandTodo() {
   let allTodos = document.querySelectorAll(".card-container");
@@ -13,6 +14,7 @@ export default function expandTodo() {
       let dueDate = document.querySelector("#dueDate");
       let priority = document.querySelector("#priority");
       let editButton = document.querySelector(".dialog-add");
+      editButton.id = todo.id;
       let id = todo.id;
       console.log(helpers.archive[id]);
 
@@ -35,4 +37,5 @@ export default function expandTodo() {
       // e.stopPropagation();
     });
   });
+  reviveEditTodo();
 }

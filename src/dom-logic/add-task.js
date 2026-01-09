@@ -3,16 +3,18 @@ import { renderProjectCard } from "../dom-logic/project-card";
 import renderTaskCard from "./task-card";
 import * as helpers from "../app-logic/helper";
 
+import { editTodo } from "./edit-todo";
+
 const addButton = document.querySelector(".add-task");
 let createButton = document.querySelector(".dialog-add");
 
 const modal = document.querySelector("#task-modal");
 const closeButton = document.querySelector(".close");
-const title = document.querySelector(".task-title");
-const date = document.querySelector(".date");
-const projectNumber = document.querySelector(".project-number");
-const priority = document.querySelector(".priority");
-const description = document.querySelector(".description");
+const title = document.querySelector("#name");
+const date = document.querySelector("#dueDate");
+const projectNumber = document.querySelector("#number");
+const priority = document.querySelector("#priority");
+const description = document.querySelector("#description");
 
 // const audio = new Audio("https://www.fesliyanstudios.com/play-mp3/387");
 // const buttons = document.querySelectorAll("button");
@@ -26,6 +28,9 @@ const description = document.querySelector(".description");
 const createTaskButton = document.querySelector(".dialog-add");
 
 addButton.addEventListener("click", () => {
+  editButton.removeEventListener("click", editTodo);
+
+  editButton.addEventListener("click", addTodo);
   modal.showModal();
 });
 
@@ -53,11 +58,12 @@ function addTodo() {
     false,
     `${priority.value}`,
     `${projectNumber.value}`,
-    `${helpers.generateID()}`
+    `${0}`
   );
 
   let projectBody = document.querySelector(".project-body");
   projectBody.textContent = "";
+
   helpers.archive.push(todo);
   helpers.saveToStorage(helpers.archive);
 
@@ -76,12 +82,17 @@ function addTodo() {
     selectProjects(document.querySelector(".project-name").textContent);
   }
   modal.close();
+  resetForm();
+  // console.log(projectNumber);
+}
+
+function resetForm() {
+  modal.close();
   title.value = "";
   date.value = "";
   projectNumber.value = "";
   priority.value = "";
   description.textContent = "";
-  // console.log(projectNumber);
 }
 
-export { addButton, addTodo };
+export { addButton, addTodo, resetForm };

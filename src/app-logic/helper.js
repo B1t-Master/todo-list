@@ -111,10 +111,6 @@ function getProjectToDos(storage, project) {
   });
 }
 
-let id = 3;
-function generateID() {
-  return id++;
-}
 //helper function to clear an element
 
 // saveToStorage(archive);
@@ -132,5 +128,4 @@ export {
   getAllFromStorage,
   updateView,
   getProjectToDos,
-  generateID,
 };

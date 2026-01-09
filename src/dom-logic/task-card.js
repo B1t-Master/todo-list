@@ -6,12 +6,14 @@ import {
 import expandTodo from "./expand-todo";
 import * as helpers from "../app-logic/helper";
 import selectProjects from "./select-project";
+import { editTodo } from "./edit-todo";
 
-const Project = document.querySelector(".project-body");
+const project = document.querySelector(".project-body");
 
 // let tempArray = helpers.getProjectToDos(archive, projectName);
 export default function renderTaskCard(storage) {
   // storage = getAllFromStorage();
+  project.textContent = "";
   let index = 0;
   while (index < storage.length) {
     // if ()
@@ -23,8 +25,9 @@ export default function renderTaskCard(storage) {
     midlleContainer.classList.add("middle-container");
     taskName.textContent = `${storage[index].title}`;
     dueDate.textContent = `${helpers.formatDate(storage[index].deadline)}`;
-    cardConatiner.id = `${storage[index].id}`;
-
+    cardConatiner.id = `${index}`;
+    taskName.id = `${index}`;
+    taskName.classList.add("tn");
     midlleContainer.appendChild(taskName);
     midlleContainer.appendChild(dueDate);
     const deleteButton = document.createElement("button");
@@ -41,14 +44,14 @@ export default function renderTaskCard(storage) {
 
     // status.name = "status";
     // status.textContent = `${archive[index].status}`;
-    cardConatiner.classList.add(`${cardConatiner.id}`);
+    cardConatiner.classList.add(`${index}`);
 
     cardConatiner.appendChild(status);
     cardConatiner.appendChild(midlleContainer);
     cardConatiner.appendChild(priority);
     cardConatiner.classList.add("card-container");
     cardConatiner.appendChild(deleteButton);
-    Project.appendChild(cardConatiner);
+    project.appendChild(cardConatiner);
     addClasses(midlleContainer, cardConatiner);
     ++index;
   }
@@ -61,7 +64,7 @@ export default function renderTaskCard(storage) {
       let projectName = document.querySelector(".project-name");
       removeFromStorage(`${deleteButton.value}`, archive);
 
-      Project.textContent = "";
+      project.textContent = "";
 
       if (projectName.textContent === "All Todos") {
         storage = helpers.getAllFromStorage();
@@ -76,6 +79,7 @@ export default function renderTaskCard(storage) {
     });
   });
   expandTodo();
+  // editTodo();
 }
 
 function addClasses(midlleContainer, cardConatiner) {
