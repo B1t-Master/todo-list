@@ -6,7 +6,7 @@ export default function expandTodo() {
   const modal = document.querySelector("#task-modal");
 
   allTodos.forEach((todo) => {
-    todo.addEventListener("click", () => {
+    todo.addEventListener("click", (e) => {
       let title = document.querySelector("#name");
       let projectName = document.querySelector("#number");
       let description = document.querySelector("#description");
@@ -32,6 +32,7 @@ export default function expandTodo() {
       //   editButton.addEventListener("click", () => {});
 
       modal.showModal();
+      // e.stopPropagation();
     });
   });
 }

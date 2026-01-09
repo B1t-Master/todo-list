@@ -8,7 +8,7 @@ export default function selectProjects(projectName) {
   let tempArray = helper.getProjectToDos(helper.archive, projectName);
   projectBody.textContent = "";
   porjectTitle.textContent = projectName;
-  console.log(tempArray);
+  // console.log(tempArray);
   helper.updateView(tempArray);
   //  if ( )
   //   helpers.updateView();

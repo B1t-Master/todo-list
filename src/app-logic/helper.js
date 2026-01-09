@@ -105,8 +105,8 @@ function updateView(storage) {
 }
 
 function getProjectToDos(storage, project) {
-  console.log(project);
   return storage.filter((todo) => {
+    // console.log(project);
     return todo.projectName === project;
   });
 }

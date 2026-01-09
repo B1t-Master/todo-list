@@ -1,4 +1,4 @@
-# Todo List Application
+# YouDo - a Todo List Application
 
 A responsive Todo List web application built with JavaScript, HTML, and CSS as part of The Odin Project curriculum.
 

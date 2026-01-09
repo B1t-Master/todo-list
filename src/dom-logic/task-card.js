@@ -5,6 +5,7 @@ import {
 } from "../app-logic/helper";
 import expandTodo from "./expand-todo";
 import * as helpers from "../app-logic/helper";
+import selectProjects from "./select-project";
 
 const Project = document.querySelector(".project-body");
 
@@ -54,7 +55,9 @@ export default function renderTaskCard(storage) {
 
   let deleteButtons = document.querySelectorAll(".delete-button");
   deleteButtons.forEach((deleteButton) => {
-    deleteButton.addEventListener("click", () => {
+    deleteButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // if( )
       let projectName = document.querySelector(".project-name");
       removeFromStorage(`${deleteButton.value}`, archive);
 
@@ -64,10 +67,11 @@ export default function renderTaskCard(storage) {
         storage = helpers.getAllFromStorage();
         helpers.updateView(storage);
       } else {
-        let projectName = document.querySelector(".project-name");
-        let tempArray = helpers.getProjectToDos(helpers.archive, projectName);
-        console.log(tempArray);
-        helpers.updateView(tempArray);
+        // let projectName = document.querySelector(".project-name");
+        // tempArray = helpers.getProjectToDos(helpers.archive, projectName);
+        // console.log(tempArray);
+        // helpers.updateView(tempArray);
+        selectProjects(document.querySelector(".project-name").textContent);
       }
     });
   });

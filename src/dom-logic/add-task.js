@@ -61,11 +61,26 @@ function addTodo() {
   helpers.archive.push(todo);
   helpers.saveToStorage(helpers.archive);
 
-  let storage = helpers.getAllFromStorage();
+  let projectName = document.querySelector(".project-name");
+  if (projectName.textContent === "All Todos") {
+    let storage = helpers.getAllFromStorage();
+    helpers.updateView(storage);
+  } else {
+    // let storage = helpers.getAllFromStorage();
+    // console.log(storage);
 
-  helpers.updateView(storage);
+    // let tempArray = helpers.getProjectToDos(helpers.archive, projectName);
+    // console.log(tempArray);
+    // helpers.updateView(tempArray);
+
+    selectProjects(document.querySelector(".project-name").textContent);
+  }
   modal.close();
-
+  title.value = "";
+  date.value = "";
+  projectNumber.value = "";
+  priority.value = "";
+  description.textContent = "";
   // console.log(projectNumber);
 }
 

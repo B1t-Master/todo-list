@@ -48,4 +48,8 @@ console.log(helpers.archive);
 
 firstLoad();
 
+window.addEventListener("load", () => {
+  helpers.updateView(helpers.archive);
+});
+
 // firstLoad();
